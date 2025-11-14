@@ -1,20 +1,18 @@
+import sys
 
+# If arguments are passed, use them
+if len(sys.argv) > 1:
+    scores = list(map(int, sys.argv[1:]))
+else:
+    # If no arguments passed (optional fallback)
+    scores = list(map(int, input("Enter scores separated by space: ").split()))
 
-def process_scores():
-    print("Enter scores separated by spaces:")
-    scores = list(map(int, input().split()))
+total = sum(scores)
+average = total / len(scores)
+maximum = max(scores)
+minimum = min(scores)
 
-    total = sum(scores)
-    average = total / len(scores)
-    maximum = max(scores)
-    minimum = min(scores)
-
-    print("\n---- Results (Local Branch) ----")
-    print("Sum of scores:", total)
-    print("Average of scores:", average)
-    print("Maximum score:", maximum)
-    print("Minimum score:", minimum)
-
-
-if __name__ == "__main__":
-    process_scores()
+print("Sum of scores:", total)
+print("Average of scores:", average)
+print("Maximum score:", maximum)
+print("Minimum score:", minimum)
